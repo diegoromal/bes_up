@@ -1,0 +1,29 @@
+version: "4"
+
+networks:
+  default:
+    external: false
+  traefik-public:
+    external: true
+
+services:
+    mybudget:
+        build: .
+        container_name: mybudget
+        hostname: mybudget
+        restart: unless-stopped
+#        ports:
+#            - 8051:8051
+        volumes:
+            - ./app:/app
+        environment:
+            - TZ=America/Sao_Paulo
+        labels:
+          - "traefik.enable=true"
+          - "traefik.http.routers.mybudget.rule=Host(`controlwallet.qosit.com.br`)"
+          - "traefik.http.services.mybudget.loadbalancer.server.port=8051"
+          - "traefik.http.routers.mybudget.entrypoints=websecure"
+          - "traefik.http.routers.mybudget.tls.certresolver=le"
+        networks:
+          - default
+          - traefik-public
