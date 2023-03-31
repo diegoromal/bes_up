@@ -19,8 +19,8 @@ from globals import *
 
 # ========= Layout ========= #
 layout = dbc.Col([
-    html.H1("MyBudget", className="text-primary"),
-    html.P("github.com/diegoromal", className="text-info"),
+    html.H3("ControlWallet", className="text-primary"),
+    html.P("Tech Team", className="text-info"),
     html.Hr(),
 
     # Sessão Perfil
