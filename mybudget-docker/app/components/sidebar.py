@@ -19,7 +19,7 @@ from globals import *
 
 # ========= Layout ========= #
 layout = dbc.Col([
-    html.H1("Control Wallet", className="text-primary"),
+    html.H3("ControlWallet", className="text-primary"),
     html.P("Tech Team", className="text-info"),
     html.Hr(),
 

@@ -1,10 +1,4 @@
-version: "4"
-
-# networks:
-#     default:
-#         external: false
-#     traefik-public:
-#         external: true
+version: "3"
 
 services:
     mybudget:
@@ -27,3 +21,8 @@ services:
         # networks:
         #   - default
         # - traefik-public
+# networks:
+#     default:
+#         external: false
+#     traefik-public:
+#         external: true
