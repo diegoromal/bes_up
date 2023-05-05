@@ -5,4 +5,5 @@ def init_app(app):
     @app.cli.command()
     def createdb():
         """Creates database"""
-        c = db.create_all()
+        db.create_all()
+        print(app.config['SQLALCHEMY_DATABASE_URI'])
