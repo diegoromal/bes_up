@@ -6,5 +6,3 @@ def init_app(app):
     def createdb():
         """Creates database"""
         c = db.create_all()
-        print(c)
-        print(app.config['SQLALCHEMY_DATABASE_URI'])
