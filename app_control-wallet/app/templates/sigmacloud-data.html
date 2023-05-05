@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block title %}SigmaCloud - Dados{% endblock %} {%
+block content %}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Endereço do Servidor</th>
+            <th scope="col">Token</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for d in data %}
+        <tr>
+            <td>{{ d.address }}</td>
+            <td>{{ d.token }}</td>
+            <td>
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    onclick="document.getElementById('modal-edit').style.display='block'"
+                >
+                    Editar
+                </button>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

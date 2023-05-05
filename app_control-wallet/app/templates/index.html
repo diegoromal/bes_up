@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Control Wallet</title>
+    </head>
+    <body>
+        <table>
+            <table>
+                <thead>
+                    <tr>
+                        <th>CNPJ</th>
+                        <th>Razão Social</th>
+                        <th>Nome Fantasia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cadastros in cadastro_clientes_fornecedores %}
+                    <tr>
+                        <td>{{ cadastros.cnpj }}</td>
+                        <td>{{ cadastros.razao_social }}</td>
+                        <td>{{ cadastros.nome_fantasia }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </table>
+    </body>
+</html>

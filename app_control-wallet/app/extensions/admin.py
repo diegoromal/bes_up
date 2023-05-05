@@ -5,8 +5,7 @@ from flask_simplelogin import login_required
 
 
 from app.extensions.database import db
-# from app.models.sigmacloud import SigmaCloud_Data, SigmaCloud_Events
-# from app.models.situator import Situator_Data, Situator_Events
+from app.models.cadastro_clientes_fornecedores import CadastroClientesFornecedores
 
 
 # Proteger o admin com login via Monkey Patch
@@ -19,7 +18,4 @@ def init_app(app):
     admin.name = app.config.TITLE
     admin.template_mode = "bootstrap4"
     admin.init_app(app)
-    # admin.add_view(sqla.ModelView(SigmaCloud_Data, db.session))
-    # admin.add_view(sqla.ModelView(SigmaCloud_Events, db.session))
-    # admin.add_view(sqla.ModelView(Situator_Data, db.session))
-    # admin.add_view(sqla.ModelView(Situator_Events, db.session))
+    admin.add_view(sqla.ModelView(CadastroClientesFornecedores, db.session))
