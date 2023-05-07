@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Index</title>
+    </head>
+    <body>
+        <h1>This is a index page!</h1>
+        <tbody>
+            {% for dados in clientes_fornecedores %}
+            <td>{{ dados.cnpj }}</td>
+            {% endfor %}
+        </tbody>
+    </body>
+</html>
