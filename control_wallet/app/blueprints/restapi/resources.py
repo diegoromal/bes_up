@@ -50,21 +50,32 @@ class ClientesFornecedoresAddResource(Resource):
 class ClientesFornecedoresEditResource(Resource):
     def put(self):
         dados = request.get_json()
-        cadastro_editar = ClientesFornecedores.update().values(
-            cnpj=dados['cnpj'],
-            razao_social=dados['razao_social'],
-            nome_fantasia=dados['nome_fantasia'],
-            tipo=dados['tipo'],
-            cep=dados['cep'],
-            endereco_rua=dados['endereco_rua'],
-            endereco_numero=dados['endereco_numero'],
-            cidade=dados['cidade'],
-            estado=dados['estado'],
-            telefone=dados['telefone'],
-            celular=dados['celular'],
-            email=dados['email']).where(ClientesFornecedores.id == dados['id'])
+        cadastro_editar = ClientesFornecedores.query.get(dados['id'])
+        cadastro_editar.cnpj = dados['cnpj']
+        cadastro_editar.razao_social = dados['razao_social']
+        cadastro_editar.nome_fantasia = dados['nome_fantasia']
+        cadastro_editar.tipo = dados['tipo']
+        cadastro_editar.cep = dados['cep']
+        cadastro_editar.endereco_rua = dados['endereco_rua']
+        cadastro_editar.endereco_numero = dados['endereco_numero']
+        cadastro_editar.cidade = dados['cidade']
+        cadastro_editar.estado = dados['estado']
+        cadastro_editar.telefone = dados['telefone']
+        cadastro_editar.celular = dados['celular']
+        cadastro_editar.email = dados['email']
         try:
-            db.session.add(cadastro_editar)
+            db.session.commit()
+            return jsonify({'status': 'success'})
+        except:
+            return jsonify({'status': 'error'})
+
+
+class ClientesFornecedoresDelResource(Resource):
+    def delete(self):
+        dados = request.get_json()
+        cadastro_excluir = ClientesFornecedores.query.get(dados['id'])
+        db.session.delete(cadastro_excluir)
+        try:
             db.session.commit()
             return jsonify({'status': 'success'})
         except:
