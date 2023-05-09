@@ -13,6 +13,8 @@ api.add_resource(ClientesFornecedoresIdResource,
                  "/cadastros/<cadastro_id>/")
 api.add_resource(ClientesFornecedoresAddResource,
                  "/cadastros/clientes_fornecedores/add/")
+api.add_resource(ClientesFornecedoresEditResource,
+                 "/cadastros/clientes_fornecedores/edit/")
 
 
 def init_app(app):

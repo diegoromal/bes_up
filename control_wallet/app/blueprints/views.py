@@ -10,3 +10,9 @@ def init_app(app):
             404, "Não foram encontrados eventos cadastrados"
         )
         return render_template("index.html", clientes_fornecedores=clientes_fornecedores)
+
+
+def init_app(app):
+    @app.route("/cadastros/clientes_fornecedores/")
+    def cadastros_clientes_fornecedores():
+        return render_template("form_clientes_fornecedores.html")
