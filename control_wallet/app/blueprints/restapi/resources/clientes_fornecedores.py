@@ -5,7 +5,7 @@ from app.models.clientes_fornecedores import ClientesFornecedores
 from app.extensions.database import db
 
 
-class ClientesFornecedoresResource(Resource):
+class ClientesFornecedoresListResource(Resource):
     def get(self):
         clientes_fornecedores = ClientesFornecedores.query.all() or abort(204)
         return jsonify(
@@ -16,9 +16,9 @@ class ClientesFornecedoresResource(Resource):
         )
 
 
-class ClientesFornecedoresIdResource(Resource):
-    def get(self, cadastro_id):
-        clientes_fornecedores = ClientesFornecedores.query.filter_by(id=cadastro_id).first() or abort(
+class ClientesFornecedoresListCNPJResource(Resource):
+    def get(self, cnpj):
+        clientes_fornecedores = ClientesFornecedores.query.filter_by(cnpj=cnpj).first() or abort(
             204
         )
         return jsonify(clientes_fornecedores.to_dict())
