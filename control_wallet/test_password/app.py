@@ -18,7 +18,7 @@ app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USERNAME'] = 'diego@qosit.com.br'
-app.config['MAIL_PASSWORD'] = 'Gn@887697'
+app.config['MAIL_PASSWORD'] = ''
 app.config['MAIL_DEFAULT_SENDER'] = 'diego@qosit.com.br'
 
 mail = Mail(app)
