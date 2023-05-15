@@ -2,7 +2,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
-from datetime import datetime
+from datetime import datetime, timedelta
 from flask_mail import Mail, Message
 
 
@@ -17,9 +17,9 @@ app.config['MAIL_SERVER'] = 'smtp.emailemnuvem.com.br'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = 'diego@qosit.com.br'
-app.config['MAIL_PASSWORD'] = ''
-app.config['MAIL_DEFAULT_SENDER'] = 'diego@qosit.com.br'
+app.config['MAIL_USERNAME'] = 'suporte@qosit.com.br'
+app.config['MAIL_PASSWORD'] = 'Qqosit-0215#'
+app.config['MAIL_DEFAULT_SENDER'] = 'suporte@qosit.com.br'
 
 mail = Mail(app)
 
@@ -37,6 +37,12 @@ class PasswordResetRequest(db.Model):
     token = db.Column(db.String(120), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False,
                            default=datetime.utcnow)
+    expired = db.Column(db.Boolean, nullable=False, default=False)
+
+    def is_expired(self):
+        expiration_time = self.created_at + \
+            timedelta(hours=1)  # Exemplo: expiração após 1 hora
+        return datetime.utcnow() > expiration_time
 
 
 @app.cli.command()
@@ -131,12 +137,15 @@ def change_password():
 
 # funções para o reset de senha
 def generate_reset_token():
-    return bcrypt.generate_password_hash(str(datetime.utcnow())).decode('utf-8')
+    hashed_password = bcrypt.generate_password_hash(
+        str(datetime.utcnow())).decode('utf-8')
+    hashed_password = hashed_password.replace('/', '')
+    return hashed_password
 
 
 def is_valid_reset_token(token):
     reset_request = PasswordResetRequest.query.filter_by(token=token).first()
-    if reset_request and not reset_request.expired():
+    if reset_request and not reset_request.is_expired():
         return True
     return False
 
@@ -163,7 +172,7 @@ def send_password_reset(user):
     send_password_reset_email(user, reset_url)
 
 
-@app.route('/forgot_password', methods=['GET', 'POST'])
+@app.route('/forgot_password/', methods=['GET', 'POST'])
 def forgot_password():
     if request.method == 'POST':
         email = request.form['email']
@@ -193,14 +202,13 @@ def reset_password(token):
         if not password == confirm_password:
             flash('As senhas não conferem.')
         else:
-            user.password = bcrypt.generate_password_hash(
-                password).decode('utf-8')
+            user.password = generate_password_hash(password, method='scrypt')
             db.session.delete(reset_request)
             db.session.commit()
             flash('Senha alterada com sucesso. Faça login com a nova senha.')
             return redirect(url_for('login'))
 
-    return render_template('reset_password.html')
+    return render_template('reset_password.html', token=token)
 
 
 if __name__ == '__main__':
