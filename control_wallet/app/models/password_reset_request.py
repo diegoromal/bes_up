@@ -1,6 +1,6 @@
-from app.extensions.database import db
 from sqlalchemy_serializer import SerializerMixin
 from datetime import datetime, timedelta
+from app.extensions.database import db
 
 
 class PasswordResetRequest(db.Model, SerializerMixin):

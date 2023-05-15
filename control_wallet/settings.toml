@@ -6,7 +6,6 @@ EXTENSIONS = [
   "app.extensions.database",
   "app.extensions.commands",
   "app.blueprints.views",
-  "app.blueprints.restapi",
 ]
 MAIL_SERVER = 'smtp.emailemnuvem.com.br'
 MAIL_PORT = '465'

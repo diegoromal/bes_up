@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Flask Login Example - Dashboard</title>
+        <title>Dashboard</title>
     </head>
     <body>
-        <h1>Welcome, {{ username }}!</h1>
-        <p><a href="{{ url_for('logout') }}">Logout</a></p>
+        {% if password_changed %}
+        <p>{{ password_changed }}</p>
+        {% endif %}
+        <h1>Hello, {{ username }}!</h1>
+        <p><a href="{{ url_for('change_password') }}">Alterar Senha</a></p>
+        <p><a href="{{ url_for('logout') }}">Deslogar</a></p>
     </body>
 </html>

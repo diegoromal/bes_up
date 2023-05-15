@@ -8,13 +8,18 @@
         <p>{{ error }}</p>
         {% endif %}
         <form method="POST" action="{{ url_for('login') }}">
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="username" />
+            <label for="username">Usuário:</label>
+            <input type="text" name="username" id="username" required="true" />
             <br /><br />
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password" />
+            <label for="password">Senha:</label>
+            <input
+                type="password"
+                name="password"
+                id="password"
+                required="true"
+            />
             <br /><br />
-            <input type="submit" value="Login" />
+            <input type="submit" value="Entrar" />
         </form>
     </body>
 </html>
