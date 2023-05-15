@@ -2,7 +2,7 @@ from flask import abort, render_template, request, url_for, redirect, session
 from werkzeug.security import generate_password_hash, check_password_hash
 
 from app.extensions.database import db
-from app.models.usuarios import Users
+from app.models.users import Users
 
 
 def init_app(app):
@@ -46,6 +46,8 @@ def init_app(app):
             username = request.form['username']
             password = request.form['password']
             email = request.form['email']
+            department = request.form['department']
+            permissions = request.form['permissions']
             user = Users.query.filter_by(username=username).first()
             if user:
                 error = 'O nome de usuário já existe. Por favor, escolha um nome de usuário diferente.'
@@ -54,7 +56,9 @@ def init_app(app):
             new_user = Users(full_name=full_name,
                              username=username,
                              password=hashed_password,
-                             email=email)
+                             email=email,
+                             department=department,
+                             permissions=permissions)
             db.session.add(new_user)
             db.session.commit()
             session['logged_in'] = True
@@ -83,6 +87,6 @@ def init_app(app):
                     new_password, method='scrypt')
                 user.password = hashed_password
                 db.session.commit()
-                password_changed = 'Sua senha foi alterada. Utilize a nova senha para efetuar login.'
-                return render_template('dashboard.html', password_changed=password_changed)
+                success = 'Sua senha foi alterada. Utilize a nova senha para efetuar login.'
+                return render_template('dashboard.html', success=success)
         return render_template('change_password.html', error=error)
