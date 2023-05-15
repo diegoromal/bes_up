@@ -2,7 +2,7 @@ from app.extensions.database import db
 from sqlalchemy_serializer import SerializerMixin
 
 
-class Usuarios(db.Model, SerializerMixin):
+class Users(db.Model, SerializerMixin):
     __tablename__ = 'usuarios'
     id = db.Column(db.Integer(), primary_key=True)
     usuario = db.Column(db.String(80), unique=True, nullable=False)
