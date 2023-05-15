@@ -1,13 +1,13 @@
 from flask import jsonify, abort, request, Response
 from flask_restful import Resource
 
-from app.models.usuarios import Usuarios
+from app.models.usuarios import Users
 from app.extensions.database import db
 
 
-class UsuariosListResource(Resource):
+class UsersListResource(Resource):
     def get(self):
-        usuarios = Usuarios.query.all() or abort(404)
+        usuarios = Users.query.all() or abort(404)
         return jsonify(
             {'usuarios': [
                 usuario.to_dict()
@@ -16,15 +16,15 @@ class UsuariosListResource(Resource):
         )
 
 
-class UsuariosAddResource(Resource):
+class UsersAddResource(Resource):
     def post(self):
         dados = request.get_json()
-        usuario_novo = Usuarios(usuario=dados['usuario'],
-                                nome=dados['nome'],
-                                email=dados['email'],
-                                senha=dados['senha'],
-                                departamento=dados['departamento'],
-                                permissoes=dados['permissoes'])
+        usuario_novo = Users(usuario=dados['usuario'],
+                             nome=dados['nome'],
+                             email=dados['email'],
+                             senha=dados['senha'],
+                             departamento=dados['departamento'],
+                             permissoes=dados['permissoes'])
         try:
             db.session.add(usuario_novo)
             db.session.commit()
@@ -33,10 +33,10 @@ class UsuariosAddResource(Resource):
             return jsonify({'status': 'error'})
 
 
-class UsuariosEditResource(Resource):
+class UsersEditResource(Resource):
     def put(self):
         dados = request.get_json()
-        usuario_editar = Usuarios.query.get(dados['id'])
+        usuario_editar = Users.query.get(dados['id'])
         usuario_editar.usuario = dados['usuario']
         usuario_editar.nome = dados['nome']
         usuario_editar.email = dados['email']
@@ -50,10 +50,10 @@ class UsuariosEditResource(Resource):
             return jsonify({'status': 'error'})
 
 
-class UsuariosDelResource(Resource):
+class UsersDelResource(Resource):
     def delete(self):
         dados = request.get_json()
-        usuario_excluir = Usuarios.query.get(dados['id'])
+        usuario_excluir = Users.query.get(dados['id'])
         db.session.delete(usuario_excluir)
         try:
             db.session.commit()

@@ -19,10 +19,10 @@ api.add_resource(ClientesFornecedoresEditResource,
 api.add_resource(ClientesFornecedoresDelResource,
                  "/cadastros/clientes_fornecedores/del/")
 
-api.add_resource(UsuariosListResource, "/usuarios/list/")
-api.add_resource(UsuariosAddResource, "/usuarios/add/")
-api.add_resource(UsuariosEditResource, "/usuarios/edit/")
-api.add_resource(UsuariosDelResource, "/usuarios/del/")
+api.add_resource(UsersListResource, "/usuarios/list/")
+api.add_resource(UsersAddResource, "/usuarios/add/")
+api.add_resource(UsersEditResource, "/usuarios/edit/")
+api.add_resource(UsersDelResource, "/usuarios/del/")
 
 
 def init_app(app):
