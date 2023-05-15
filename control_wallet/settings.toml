@@ -8,3 +8,10 @@ EXTENSIONS = [
   "app.blueprints.views",
   "app.blueprints.restapi",
 ]
+MAIL_SERVER = 'smtp.emailemnuvem.com.br'
+MAIL_PORT = '465'
+MAIL_USE_TLS = 'False'
+MAIL_USE_SSL = 'True'
+MAIL_USERNAME = 'suporte@qosit.com.br'
+MAIL_PASSWORD = 'Qqosit-0215#'
+MAIL_DEFAULT_SENDER = 'suporte@qosit.com.br'
