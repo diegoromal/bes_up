@@ -1,5 +1,6 @@
 from sqlalchemy_serializer import SerializerMixin
 from datetime import datetime, timedelta
+
 from app.extensions.database import db
 
 

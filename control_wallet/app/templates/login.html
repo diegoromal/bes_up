@@ -6,6 +6,8 @@
     <body>
         {% if error %}
         <p>{{ error }}</p>
+        {% endif %} {% if success %}
+        <p>{{ success }}</p>
         {% endif %}
         <form method="POST" action="{{ url_for('login') }}">
             <label for="username">Usuário:</label>

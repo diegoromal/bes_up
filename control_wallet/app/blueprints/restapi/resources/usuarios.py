@@ -1,7 +1,7 @@
 from flask import jsonify, abort, request, Response
 from flask_restful import Resource
 
-from app.models.usuarios import Users
+from app.models.users import Users
 from app.extensions.database import db
 
 
