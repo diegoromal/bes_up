@@ -1,0 +1,21 @@
+.chart {
+    width: 400px;
+    height: 200px;
+    border: 1px solid #000;
+    display: flex;
+}
+
+.item-1 {
+    width: 30%;
+    background-color: #4caf50;
+}
+
+.item-2 {
+    width: 30%;
+    background-color: #a74caf;
+}
+
+.item-3 {
+    width: 30%;
+    background-color: #af604c;
+}

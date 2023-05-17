@@ -7,7 +7,9 @@ from app.extensions.database import db
 from app.extensions.mail import mail
 from app.extensions.bcrypt import bcrypt
 from app.models.users import Users
+from app.models.clientes_fornecedores import ClientesFornecedores
 from app.models.password_reset_request import PasswordResetRequest
+from app.models.pagamentos_recebimentos import Pagamentos, Recebimentos
 
 
 def init_app(app):
@@ -168,6 +170,84 @@ def init_app(app):
                 db.session.delete(reset_request)
                 db.session.commit()
                 success = 'Senha alterada com sucesso. Faça login com a nova senha.'
-                return render_template('login.html', success=success)
+                return render_template('index.html', success=success)
 
         return render_template('reset_password.html', token=token)
+
+    @app.route('/pagamentos/', methods=['GET', 'POST'])
+    def pagamentos():
+        clientes = ClientesFornecedores.query.all()
+        error = "Não há clientes ou fornecedores cadastrados"
+        if clientes:
+            return render_template("pagamentos.html", pagamentos=pagamentos)
+        return render_template("pagamentos.html", error=error)
+
+        # if request.method == 'POST':
+        #     password = request.form['password']
+        #     confirm_password = request.form['confirm_password']
+        #     if not password == confirm_password:
+        #         error = 'As senhas não conferem. Tente novamente.'
+        #         return render_template('reset_password.html', token=token, error=error)
+        #     else:
+        #         user.password = generate_password_hash(
+        #             password, method='scrypt')
+        #         db.session.delete(reset_request)
+        #         db.session.commit()
+        #         success = 'Senha alterada com sucesso. Faça login com a nova senha.'
+        #         return render_template('index.html', success=success)
+
+        # return render_template('reset_password.html', token=token)
+
+    @app.route('/clientes-fornecedores/', methods=['GET', 'POST'])
+    def clientes_fornecedores():
+        if request.method == 'GET':
+            cadastros = ClientesFornecedores.query.all()
+            error = "Não há clientes ou fornecedores cadastrados"
+            if cadastros:
+                return render_template("clientes-fornecedores.html", cadastros=cadastros)
+            return render_template("clientes-fornecedores.html", error=error)
+
+    @app.route('/clientes-fornecedores/add', methods=['GET', 'POST'])
+    def add_clientes_fornecedores():
+        if request.method == 'GET':
+            clientes = ClientesFornecedores.query.all()
+            error = "Não há clientes ou fornecedores cadastrados"
+            if clientes:
+                return render_template("example_cadastro_clientes-fornecedores.html", clientes=clientes)
+
+        if request.method == 'POST':
+            cnpj = request.form['cnpj']
+            razao_social = request.form['razao_social']
+            nome_fantasia = request.form['nome_fantasia']
+            tipo = request.form['tipo']
+            cep = request.form['cep']
+            endereco_rua = request.form['endereco_rua']
+            endereco_numero = request.form['endereco_numero']
+            cidade = request.form['cidade']
+            estado = request.form['estado']
+            telefone = request.form['telefone']
+            celular = request.form['celular']
+            email = request.form['email']
+            cnpj_existe = ClientesFornecedores.query.filter_by(
+                cnpj=cnpj).first()
+            if cnpj_existe:
+                error = 'Cliente ou fornecedor já cadastrado.'
+                return render_template('example_cadastro_clientes-fornecedores.html', error=error)
+            novo_cadastro = ClientesFornecedores(cnpj=cnpj,
+                                                 razao_social=razao_social,
+                                                 nome_fantasia=nome_fantasia,
+                                                 tipo=tipo,
+                                                 cep=cep,
+                                                 endereco_rua=endereco_rua,
+                                                 endereco_numero=endereco_numero,
+                                                 cidade=cidade,
+                                                 estado=estado,
+                                                 telefone=telefone,
+                                                 celular=celular,
+                                                 email=email)
+            db.session.add(novo_cadastro)
+            db.session.commit()
+            success = 'Cadastro efetuado com sucesso.'
+            return render_template("example_cadastro_clientes-fornecedores.html", success=success)
+
+        return render_template("example_cadastro_clientes-fornecedores.html", error=error)

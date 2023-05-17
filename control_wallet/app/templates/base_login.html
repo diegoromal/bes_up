@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>ControllWallet - TechTeam</title>
+        <title>ControllWallet - {% block title %}{% endblock %}</title>
         <link
             rel="stylesheet"
             href="{{ url_for('static', filename='style.css') }}"
         />
     </head>
     <body>
-        <div class="area-login">
+        <div class="area-login container-fluid">
             <div class="titulo">
                 <h2>
                     Bem-vindo ao <span>Controll</span
@@ -58,7 +58,8 @@
             <div class="fundo-azul">
                 <img
                     class="logo-tech"
-                    src="static/logo_controlwallet_branca-430x290.png"
+                    src="{{ url_for('static',
+                filename='logo_controlwallet_branca-430x290.png') }}"
                 />
             </div>
         </div>
