@@ -19,16 +19,16 @@
 - cadeia -> nome, modelo, marca, data_nascimento
 
 ## Atribuição de conteúdos para variáveis
-    ```bash
-    <nome da variavel> = <valor do mesmo tipo da variável>
-    <nome da variavel> = <operações cujo resultado é o do mesmo tipo da vaiável>
-    ```
+```
+<nome da variavel> = <valor do mesmo tipo da variável>
+<nome da variavel> = <operações cujo resultado é o do mesmo tipo da vaiável>
+```
 # Constantes -> Portugol:
 - Constantes são imutáveis, ou seja, sempre terão valor fixo.
 - Colocar const antes do tipo, por convensão, preferir usar nome inteiro em maiusculo.
 
 ## Atribuição de conteúdos para variáveis
-    ```bash
-    const tipo <NOME DA CONSTANTE> = <valor do mesmo tipo da constante>
-    const tipo <NOME DA CONSTANTE> = <operações cujo resultado é o do mesmo tipo da constante>
-    ```
+```
+const tipo <NOME DA CONSTANTE> = <valor do mesmo tipo da constante>
+const tipo <NOME DA CONSTANTE> = <operações cujo resultado é o do mesmo tipo da constante>
+```
