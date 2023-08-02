@@ -1,5 +1,4 @@
 # Memória --> variável
-
 - Endereço -> Local onde sera armazenada na memória ram (geralmente com 8 caractéres)
 - Tipo -> Dependendo do tipo consome mais ou menos memória
 - Nome -> Identificador da variável (Apelido para identificar o endereço)
@@ -20,16 +19,16 @@
 - cadeia -> nome, modelo, marca, data_nascimento
 
 ## Atribuição de conteúdos para variáveis
- ````bash
- - <nome da variavel> = <valor do mesmo tipo da variável>
- - <nome da variavel> = <operações cujo resultado é o do mesmo tipo da vaiável>
- ````
+    ````bash
+    <nome da variavel> = <valor do mesmo tipo da variável>
+    <nome da variavel> = <operações cujo resultado é o do mesmo tipo da vaiável>
+    ````
 # Constantes -> Portugol:
 - Constantes são imutáveis, ou seja, sempre terão valor fixo.
-- Colocar const antes do tipo, preferir usar nome inteiro em maiusculo.
+- Colocar const antes do tipo, por convensão, preferir usar nome inteiro em maiusculo.
 
 ## Atribuição de conteúdos para variáveis
- ````bash
- - const tipo <NOME DA CONSTANTE> = <valor do mesmo tipo da constante>
- - const tipo <NOME DA CONSTANTE> = <operações cujo resultado é o do mesmo tipo da constante>
-  ````
+    ````bash
+    const tipo <NOME DA CONSTANTE> = <valor do mesmo tipo da constante>
+    const tipo <NOME DA CONSTANTE> = <operações cujo resultado é o do mesmo tipo da constante>
+     ````
