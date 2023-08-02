@@ -20,8 +20,8 @@
 
 ## Atribuição de conteúdos para variáveis
 ```
-<nome da variavel> = <valor do mesmo tipo da variável>
-<nome da variavel> = <operações cujo resultado é o do mesmo tipo da vaiável>
+<tipo da variavel> <nome da variavel> = <valor do mesmo tipo da variável>
+<tipo da variavel> <nome da variavel> = <operações cujo resultado é o do mesmo tipo da vaiável>
 ```
 # Constantes -> Portugol:
 - Constantes são imutáveis, ou seja, sempre terão valor fixo.
@@ -29,6 +29,6 @@
 
 ## Atribuição de conteúdos para variáveis
 ```
-const tipo <NOME DA CONSTANTE> = <valor do mesmo tipo da constante>
-const tipo <NOME DA CONSTANTE> = <operações cujo resultado é o do mesmo tipo da constante>
+const <tipo da constante> <NOME DA CONSTANTE> = <valor do mesmo tipo da constante>
+const <tipo da constante> <NOME DA CONSTANTE> = <operações cujo resultado é o do mesmo tipo da constante>
 ```
