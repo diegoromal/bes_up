@@ -81,7 +81,7 @@
    | "A Culpa é das Estrelas" | John Green   | Romance     | 2012              |
    | "O Hobbit"            | J.R.R. Tolkien   | Fantasia    | 1937              |
 
-   ## Entidade 6 Cidades e Países
+   ## Entidade 6: Cidades e Países
    | Cidade           | País          | População (milhões) | Continente    |
    |------------------|---------------|---------------------|---------------|
    | Tóquio           | Japão         | 37.5                | Ásia          |
