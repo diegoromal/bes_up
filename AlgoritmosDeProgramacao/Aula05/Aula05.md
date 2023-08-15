@@ -63,6 +63,5 @@
     double %lf (long float)
     char %c
     // Exemplo:
-    scanf("%d", &<nome_variavel_int>); // (O & faz parte da leitura da variável)
-
+    scanf("%d", &<nome_variavel_int>); // (O & faz parte da leitura da variável, tem que ficar colado no nome da variável)
     ```
