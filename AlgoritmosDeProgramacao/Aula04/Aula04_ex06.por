@@ -1,22 +1,26 @@
 programa {
   funcao inicio() {
   /*
-  Escreva um algoritmo que pergunte ao usuário a quantidade de km percorridos por um carro alugado
-  e a quantidade de dias pelos quais ele foi alugado. Calcule e mostre o valor a pagar, sabendo que o
-  carro custa R$70,00 por dia e R$0,15 por km rodado.
+  Escreva um programa que leia o nome de um funcionário, seu número de horas
+  trabalhadas, o valor que recebe por hora e calcule o salário desse funcionário. A
+  seguir, mostre o nome e o salário do funcionário.
   */
 
-  real km_percorridos, qtde_dias, custo_dia = 70.00, custo_km = 0.15, valor_pagar
+  cadeia nome
+  real horas_trabalhadas, valor_hora, salario
 
-  escreva("Digite quantos KM o carro percorreu: ")
-  leia(km_percorridos)
-  
-  escreva("Digite por quantos dias ele foi alugado: ")
-  leia(qtde_dias)
+  escreva("Digite o nome do funcionario: ")
+  leia(nome)
 
-  valor_pagar = (km_percorridos * custo_km) + (qtde_dias * custo_dia)
+  escreva("Digite o numero de horas trabalhadas: ")
+  leia(horas_trabalhadas)
 
-  escreva("O valor total a pagar será de R$", valor_pagar)
+  escreva("Digite o valor recebido por hora: ")
+  leia(valor_hora)
+
+  salario = horas_trabalhadas * valor_hora
+
+  escreva("O funcionario ", nome, " devera receber R$", salario)
 
   }
 }
