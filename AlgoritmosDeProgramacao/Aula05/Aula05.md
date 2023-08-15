@@ -2,14 +2,14 @@
 
 ### Declaração de constante
 
-    ```C
+    ```
     #define <nome_da_constante> <valor_da_constante>
     #define VALOR_FRETE 10.50
     ```
 
 ### Atrubuição de conteúdo
 
-    ```C
+    ```
     x = 4;
     val = 2.5;
     y = x + 2;
@@ -20,13 +20,13 @@
 
 ### Saída de dados - printf
 
-    ```C
+    ```
     printf("<string_de_controle>", <expressoes>);
     ```
 
 ### Imprimir conteúdo de variável
 
-    ```C
+    ```
     int %d ou %i
     float %f
     double %lf (long float)
@@ -40,13 +40,13 @@
 ### BibCioteca para entrada e saída de dados
 
 -   Inserir na primeira linha do código:
-    ```c
+    ```
     #include <stdio.h>
     ```
 
 ### Estrutura padrão do programa
 
-    ```c
+    ```
     #include <stdio.h>
 
     int main() {
@@ -57,7 +57,7 @@
 
 ### Ler conteúdo no teclado
 
-    ```c
+    ```
     int %d ou %i
     float %f
     double %lf (long float)
