@@ -16,7 +16,10 @@ int main() {
     printf("Entre com o valor da compra: ");
     scanf("%f", &valor_compra);
 
-    if (valor_compra > 500.00) {
+    if (valor_compra <= 0.0) {
+        printf("Valor inválido!\n");
+        return 1;
+    } else if (valor_compra > 500.00) {
         valor_com_desconto = valor_compra - (valor_compra * 0.15);
         printf("Valor original: %.2f \nValor do Desconto: 15% \nValor atual: %.2f\n", valor_compra, valor_com_desconto);
     } else if ((valor_compra > 200.00) && (valor_compra < 500.00)) {
