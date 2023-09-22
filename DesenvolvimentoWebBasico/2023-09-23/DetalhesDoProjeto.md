@@ -1,0 +1,3 @@
+-   Rolagem automática
+-   Modal
+-   Banner com Slideshow
