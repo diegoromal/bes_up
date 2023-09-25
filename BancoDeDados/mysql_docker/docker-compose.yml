@@ -1,0 +1,39 @@
+version: "3"
+
+services:
+    mysql:
+        container_name: mysql
+        hostname: mysql
+        image: mariadb:10.3
+        ports:
+            - "3306:3306"
+        volumes:
+            - mysql-data:/var/lib/mysql
+            - ./mysql_dump:/mysql_dump
+        restart: unless-stopped
+        environment:
+            MYSQL_ROOT_PASSWORD: sho0ieSheita@
+            MYSQL_DATABASE: qosit
+            MYSQL_USER: qosit
+            MYSQL_PASSWORD: sho0ieSheita
+        command:
+            - --max-allowed-packet=64M
+            - --innodb-buffer-pool-size=1G
+            - --innodb-log-file-size=256M
+            - --character-set-server=utf8
+            - --bind-address=0.0.0.0
+            - --general_log_file=/var/log/mysql/mysql.log
+
+    phpmyadmin:
+        container_name: phpmyadmin
+        hostname: phpmyadmin
+        image: phpmyadmin
+        restart: unless-stopped
+        ports:
+            - 8080:80
+        environment:
+            - PMA_ARBITRARY=1
+
+volumes:
+    mysql-data:
+        driver: local

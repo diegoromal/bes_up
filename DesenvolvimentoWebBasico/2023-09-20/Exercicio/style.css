@@ -1,0 +1,61 @@
+body {
+    background-color: #eee;
+    padding: 0;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    color: #333;
+    display: block;
+    margin: auto;
+    width: 85%;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 25px;
+}
+
+.container p {
+    color: #555;
+}
+
+.label-input {
+    display: inline-block;
+    width: calc(100% - 603px); /* de acordo com as laterais */
+    font-size: 16px;
+    padding: 5px 300px;
+}
+
+.label-input label {
+    display: inline-block;
+    width: 140px;
+    font-weight: bold;
+}
+
+.label-input input {
+    width: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 0.5px solid #ccc;
+}
+
+.botoes {
+    float: right;
+}
+
+.btn-orange {
+    background-color: orange;
+}
+
+.btn-blue {
+    background-color: blue;
+}
+
+.btn-orange,
+.btn-blue {
+    color: white;
+    border: none;
+    width: 75px;
+}
