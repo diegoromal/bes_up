@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Trabalhando com GIT</title>
+</head>
+<body>
+    <main>
+        <section>
+            <h1>Comandos Git</h1>
+
+            <h2>Configuração</h2>
+            <p><code>git init</code> - Inicia um projeto git</p>
+            <p><code>git clone "url"</code> - Clona um repositório Git</p>
+            <p><code>git remote add "remote" "url"</code> - Adiciona uma "branch local"</p>
+        
+            <h2>Baixando Atualizações</h2>
+            <p><code>git pull --allow-unrelated-histories "remote" "branch"</code> - Permite pegar alterações de um projeto com o histórico diferente do projeto local (indicado para quando já existe um projeto no git e um projeto local)</p>
+            <p><code>git pull  "remote" "branch"</code> - Pega as ultimas alterações comitadas no servidor do Git</p>
+        
+            <h2>Fazendo Atualizações</h2>
+            <p><code>git add .</code> - Adiciona todas as mudanças ao stage</p>
+            <p><code>git commit -m "Texto sobre"</code> - Realiza um commit das mudanças</p>
+            <p><code>git push "remote" "branch"</code> - Envia as mudanças para um repositório git</p>
+        
+            <h2>Criando uma Nova Branch (Deve ser criada pelo GitHub)</h2>
+            <p><code>git checkout -b "nova-branch"</code> - Cria uma nova branch</p>
+            <p><code>git branch</code> - Verifica em qual branch você está</p>
+            <p><code>git checkout "branch"</code> - troca de branch</p>
+                
+            <h2>Extras</h2>
+            <p><code>git remote rm "remote"</code> - Remove um repositório remoto</p>
+            <p><code>git remote -v</code> - Lista todos os repositórios remotos</p>
+
+            <h2>Config</h2>
+            <p><code>git config --global user.name</code> - Ver usuario configurado</p>
+            <p><code>git config --global user.email</code> - Ver email configurado</p>
+            <p><code>git config --global --unset user.name</code> - Apaga o Usuário</p>
+            <p><code>git config --global --unset user.email</code> - Apaga o email</p>
+        </section>
+    </main>
+</body>
+</html>
