@@ -28,3 +28,8 @@ SELECT * FROM aluno WHERE sexo = 'F' AND nacionalidade = 'Portugal' AND nome_alu
 SELECT nome, nacionalidade FROM aluno WHERE sexo = 'M' AND nome_aluno LIKE '%Silva%' AND data_nascimento >= '1990-01-01' AND peso > '100';
 SELECT * FROM curso WHERE carga_horaria > '30' AND carga_horario <= '60';
 SELECT * FROM curso WHERE carga_horaria BETWEEN '30' AND '60';
+
+SELECT SUM (peso / (altura * altura)) FROM alunos;
+
+SELECT (peso / (altura * altura)) AS imc FROM aluno;
+

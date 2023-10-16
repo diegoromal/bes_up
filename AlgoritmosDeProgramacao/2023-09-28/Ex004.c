@@ -8,11 +8,11 @@ imprima todos os valores salvos no vetor, além da média dos valores, o menor e
 int main() {
     int cont, vet[6], soma = 0, maior, menor, media;
 
-    for (cont = 0; cont <= 5; cont++) {
+    for (cont = 0; cont < 6; cont++) {
         do {
             printf("Entre com o valor do indice[%i]: ", cont);
             scanf("%i", &vet[cont]);
-        } while(vet[cont] < 1 || vet[cont] > 20);
+        } while(vet[cont] % 2 != 0 || vet[cont] < 1 || vet[cont] > 20);
 
         soma = soma + vet[cont];
         if (vet[cont] > maior) {
