@@ -16,9 +16,15 @@ int main() {
     for (l = 0; l < 5; l++) {
         for (c = 0; c < 5; c++) {
             matriz[l][c] = rand() % 51;
-            printf("%i ", matriz[l][c]);
+            if (l == c) {
+                vetor[l] = matriz[l][c];
+            }
         }
     }
+    for (l = 0; l < 5; l++) {
+        printf("%.2f ", vetor[l]);
+    }
+    printf("\n");
 
     return 0;
 }
