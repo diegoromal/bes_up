@@ -23,8 +23,8 @@ int main() {
         for (l = 0; l < 3; l++) {
             soma_estoque[c] = soma_estoque[c] + estoque[l][c];
         }
-        if (soma_estoque[c] < 150) {
-            printf("Comprar produto: %i, faltando %i pecas. \n", c, 150 - soma_estoque[c]);
+        if (soma_estoque[c] < 50) {
+            printf("Comprar produto: %i, faltando %i pecas. \n", c, 50 - soma_estoque[c]);
         }
     }
 

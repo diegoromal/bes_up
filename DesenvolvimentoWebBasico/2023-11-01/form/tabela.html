@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tabela</title>
+    </head>
+    <body>
+        <main>
+            <table id="tabela">
+                <tr>
+                    <th>Chave</th>
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Ação</th>
+                </tr>
+            </table>
+            <a href="index.html">Voltar</a>
+        </main>
+        <script>
+            const dados = JSON.parse(localStorage.getItem("dados")) || [];
+            const tabela = document.getElementById("tabela");
+
+            function exibirItens() {
+                dados.forEach((item, key) => {
+                    tabela.innerHTML += `
+                        <tr>
+                            <td>${key}</td>
+                            <td>${item.nome}</td>
+                            <td>${item.email}</td>
+                            <td>
+                                <a href="index.html?chave=${key}">Editar</a> |
+                                <a href="#" onclick="remover(${key})">Excluir</a>
+                            </td>
+                        </tr>
+                        `;
+                });
+            }
+
+            function remover(chave) {
+                dados.splice(chave, 1);
+                localStorage.setItem("dados", JSON.stringify(dados));
+                window.location.href = "tabela.html";
+            }
+
+            exibirItens();
+        </script>
+    </body>
+</html>
