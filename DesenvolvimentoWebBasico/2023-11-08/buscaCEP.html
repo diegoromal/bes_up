@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>consultaCEP</title>
+    </head>
+    <body>
+        <form id="form">
+            <label for="cep">CEP: </label>
+            <input
+                type="text"
+                class="cep"
+                id="cep"
+                maxlength="9"
+                onblur="buscaCep(this.value)"
+            /><br />
+            <label for="rua">Rua: </label>
+            <input type="text" class="rua" id="rua" /><br />
+            <label for="bairro">Bairro: </label>
+            <input type="text" name="bairro" id="bairro" /><br />
+            <label for="cidade">Cidade: </label>
+            <input type="text" name="cidade" id="cidade" /><br />
+            <label for="estado">Estado: </label>
+            <input type="text" name="estado" id="estado" /><br />
+            <input type="button" value="Salvar" />
+        </form>
+    </body>
+    <script>
+        const form = document.getElementById("form");
+        const cep = document.getElementById("cep");
+        const rua = document.getElementById("rua");
+        const bairro = document.getElementById("bairro");
+        const cidade = document.getElementById("cidade");
+        const estado = document.getElementById("estado");
+
+        function cepErrado(msg) {
+            const erro = document.createElement("label");
+            erro.innetText = " CEP: " + cep.value + " " + msg;
+            erro.style.color = "red";
+            erro.style.fontWeight = "bold";
+            erro.id = "erro";
+            //form.insertBefore(erro, cep);
+            cep.parentNode.insertBefore(erro, cep.nextSibling);
+            form.reset();
+        }
+
+        function retorno(conteudo) {
+            if (!("erro" in conteudo)) {
+                cep.value = conteudo.cep;
+                rua.value = conteudo.logradouro;
+                bairro.value = conteudo.bairro;
+                cidade.value = conteudo.localidade;
+                estado.value = conteudo.uf;
+            } else {
+                cepErrado("Não localizado");
+            }
+        }
+
+        function buscaCep(valor) {
+            const msgErro = document.getElementById("erro");
+            if (msgErro) {
+                form.removeChild(msgErro);
+            }
+            let cepValido = valor.replace(/\D/g, "");
+            if (cepValido != "") {
+                let padraoCep = /^[0-9]{8}$/;
+                if (padraoCep.test(cepValido)) {
+                    rua.value = "buscando...";
+                    bairro.value = "buscando...";
+                    cidade.value = "buscando...";
+                    estado.value = "buscando...";
+
+                    const script = document.createElement("script");
+                    script.src =
+                        "https://viacep.com.br/ws/" +
+                        cepValido +
+                        "/json/?callback=retorno";
+
+                    document.body.appendChild(script);
+                } else {
+                    cepErrado("Inválido");
+                }
+            } else {
+                cepErrado("Digite o cep corretamente");
+            }
+        }
+    </script>
+</html>

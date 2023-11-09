@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Aula 08/11/2023</title>
+        <style>
+            dialog {
+                width: 70%;
+                border: 0px;
+                border-radius: 10px;
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+            }
+            dialog::backdrop {
+                background-color: rgba(0, 0, 0, 0.8);
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Exemplos de querySelector</h1>
+        <p>Este é um parágrafo</p>
+        <div>
+            <div>
+                <p>Este é um p aninhado</p>
+            </div>
+        </div>
+        <span>
+            Esta é uma tag Spam
+            <p>Este é um parágrafo em um Span</p>
+        </span>
+        <a href="#">Abrir Modal</a>
+        <dialog>
+            <h2>Título do Modal</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Possimus, quia corporis. Quod reiciendis distinctio praesentium,
+                et nulla dolorum maiores animi, possimus unde nam eligendi optio
+                amet placeat accusantium vero asperiores.
+            </p>
+            <a href="index.html">Fechar Modal</a>
+        </dialog>
+    </body>
+    <script>
+        const p = document.querySelector("div div p");
+        const paragrafo = document.querySelectorAll("p");
+        const span = document.querySelector("span");
+
+        paragrafo.forEach((par) => {
+            par.style.color = "green";
+        });
+        p.style.color = "blue";
+        span.style.backgroundColor = "lightblue";
+        span.style.display = "block";
+        span.style.padding = "10px";
+
+        //  Modal
+        const dialog = document.querySelector("dialog");
+        const btnModal = document.querySelectorAll("a");
+
+        btnModal[0].onclick = function () {
+            modal.showModal();
+        };
+        btnModal[1].onclick = function () {
+            modal.close();
+        };
+        modal.addEventListener("click", (evento) => {
+            if (evento.target === modal) {
+                modal.close();
+            }
+        });
+    </script>
+</html>
