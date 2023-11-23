@@ -6,60 +6,81 @@ funcionário com maior salário.
 */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define MAX_NOME 100
+#define MAX_CARGO 50
+#define MAX_FUNCIONARIOS 100
 
 typedef struct {
-    char nome[50];
+    char nome[MAX_NOME];
     int idade;
     float salario;
-    int anosExperiencia;
-    char cargo;
-} funcionario ;
+    int experiencia;
+    char cargo[MAX_CARGO];
+} Funcionario;
 
+int main() {
+    int n;
+    printf("Digite o número de funcionários (N): ");
+    scanf("%d", &n);
 
-void cadastraFuncionario() {
-    // int i;
-    // funcionario f[i];
-
-    int lixo;
-    char continua;
-    char nome[50];
-
-    for (int i = 0; continua != 'n' && continua != 'N'; i++){
-        printf("Entre com o nome do funcionário: ");
-        scanf("%[^\n]s", nome);
-        lixo = getchar();
-
-        printf("Deseja inserir mais um funcionario? [S/N]: ");
-        scanf("%c", &continua);
-        printf("%c \n", continua);
-        lixo = getchar();
+    if (n <= 0 || n > MAX_FUNCIONARIOS) {
+        printf("Número de funcionários inválido.\n");
+        return 1;
     }
-}
 
-    // do {
+    Funcionario funcionarios[MAX_FUNCIONARIOS];
 
-    //     printf("Entre com o nome do funcionário: ");
-    //     scanf("", nome);
+    // Inicializar variáveis para cálculos
+    int somaIdades = 0;
+    int maiorExperiencia = 0;
+    char nomeMaiorExperiencia[MAX_NOME];
+    float maiorSalario = 0;
+    char cargoMaiorSalario[MAX_CARGO];
 
-    //     printf("Entre com a idade: ");
-    //     scanf("%f", &f[])
+    for (int i = 0; i < n; i++) {
+        printf("\nFuncionário %d:\n", i + 1);
 
-    //     printf("Entre com o salario: ");
+        printf("Nome: ");
+        scanf(" %[^\n]s", funcionarios[i].nome); // %[^\n]s para ler espaços no nome
 
-    //     printf("Entre com os anos de experiencia: ");
+        printf("Idade: ");
+        scanf("%d", &funcionarios[i].idade);
 
-    //     printf("Entre com o cargo: ");
+        printf("Salário: ");
+        scanf("%f", &funcionarios[i].salario);
 
+        printf("Anos de experiência: ");
+        scanf("%d", &funcionarios[i].experiencia);
 
-    //     char nome[50];
-    // int idade;
-    // float salario;
-    // int anosExperiencia;
-    // char cargo;
+        printf("Cargo: ");
+        scanf(" %[^\n]s", funcionarios[i].cargo);
 
-int main () {
+        // Atualizar variáveis para cálculos
+        somaIdades += funcionarios[i].idade;
 
-    cadastraFuncionario();
+        if (funcionarios[i].experiencia > maiorExperiencia) {
+            maiorExperiencia = funcionarios[i].experiencia;
+            strcpy(nomeMaiorExperiencia, funcionarios[i].nome);
+        }
+
+        if (funcionarios[i].salario > maiorSalario) {
+            maiorSalario = funcionarios[i].salario;
+            strcpy(cargoMaiorSalario, funcionarios[i].cargo);
+        }
+    }
+
+    // Calcular e exibir a idade média
+    float idadeMedia = (float)somaIdades / n;
+    printf("\nIdade média dos funcionários: %.2f\n", idadeMedia);
+
+    // Exibir o nome do funcionário com maior experiência
+    printf("Funcionário com maior experiência: %s\n", nomeMaiorExperiencia);
+
+    // Exibir o cargo do funcionário com maior salário
+    printf("Cargo do funcionário com maior salário: %s\n", cargoMaiorSalario);
 
     return 0;
 }

@@ -6,61 +6,50 @@ atual da conta do cliente. Caso o cliente não tenha dinheiro suﬁciente para e
 mensagem de erro e não faça a transação. Ao ﬁnal, imprima os dados das transações e o saldo da
 conta do cliente.
 */
-
 #include <stdio.h>
 
-typedef struct {
-    float saldoInicial;
+// Definição da struct para representar uma transação PIX
+struct TransacaoPix {
     char chave[50];
     float valor;
-    char status;
-} pix;
-
-typedef struct{
-    float saldoDisponivel;
-    pix p[5];
-} transacoes ;
-
+};
 
 int main() {
-    transacoes t;
-    int lixo, soma = 1;
+    float saldo;
+    int numTransacoes = 5;
 
-    printf("Entre com o saldo disponível: R$");
-    scanf("%f", &t.saldoDisponivel);
+    // Recebe o saldo disponível na conta do cliente
+    printf("Digite o saldo disponível na conta do cliente: ");
+    scanf("%f", &saldo);
 
-    for (int i = 0; i < 5; i++) {
-        t.p[i].saldoInicial = t.saldoDisponivel;
+    // Declara um array de structs para armazenar as transações PIX
+    struct TransacaoPix transacoes[numTransacoes];
 
-        printf("Entre com a chave %i: ", i);
-        scanf("%[^\n]s", t.p[i].chave);
-        lixo = getchar();
+    // Loop para cada transação PIX
+    for (int i = 0; i < numTransacoes; i++) {
+        // Recebe os dados da transação PIX
+        printf("\nDigite a chave PIX da transação %d: ", i + 1);
+        scanf("%s", transacoes[i].chave);
 
-        printf("Entre com o valor %i: R$", i);
-        scanf("%f", &t.p[i].valor);
+        printf("Digite o valor da transação %d: ", i + 1);
+        scanf("%f", &transacoes[i].valor);
 
-        
-
-        if (t.saldoDisponivel < t.p[i].valor) {
-            t.p[i].status = 'N';
-            printf("Saldo insuficiente. \n");
-            i = 5;
+        // Verifica se há saldo suficiente para a transação
+        if (transacoes[i].valor > saldo) {
+            printf("Erro: Saldo insuficiente para a transação %d. Transação não realizada.\n", i + 1);
         } else {
-            t.saldoDisponivel = t.saldoDisponivel - t.p[i].valor;
+            // Realiza a transação e atualiza o saldo
+            saldo -= transacoes[i].valor;
+            printf("Transação %d realizada com sucesso. Saldo atual: %.2f\n", i + 1, saldo);
         }
-
-        soma++;
     }
 
-    for (int i = 0; i < soma; i++) {
-        printf("--- Transação %i --- \n", i);
-        printf("Saldo inicial: %.2f \n", t.p[i].saldoInicial);
-        printf("Chave: %s \n", t.p[i].chave);
-        printf("Valor: %.2f \n", t.p[i].valor);
-        printf("Status: %c \n", t.p[i].status);
+    // Imprime os dados das transações e o saldo final
+    printf("\nResumo das transações:\n");
+    for (int i = 0; i < numTransacoes; i++) {
+        printf("Transação %d - Chave PIX: %s, Valor: %.2f\n", i + 1, transacoes[i].chave, transacoes[i].valor);
     }
-
+    printf("\nSaldo final da conta: %.2f\n", saldo);
 
     return 0;
 }
-;
