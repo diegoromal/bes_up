@@ -1,0 +1,13 @@
+Pessoa
+	Aluno
+		Nome herdado de pessoa
+	Professor
+		Nome herdado de pessoa
+		
+		
+A classe "mais acima" é mais genérica (Vai conter o que se repete)
+A classe "mais abaixo" é mais específica
+
+public abstract class Veiculo {} -> Não deixa criar um objeto apartir da classe por conta do abstract;
+
+	

@@ -1,0 +1,14 @@
+/ip firewall mangle add action=mark-connection chain=forward dst-port=49350 new-connection-mark=CFTV_CONN passthrough=yes protocol=tcp
+/ip firewall mangle add action=mark-connection chain=forward new-connection-mark=CFTV_CONN passthrough=yes protocol=tcp src-port=49350
+/ip firewall mangle add action=mark-connection chain=forward dst-port=59350 new-connection-mark=CFTV_CONN passthrough=yes protocol=tcp
+/ip firewall mangle add action=mark-connection chain=forward new-connection-mark=CFTV_CONN passthrough=yes protocol=tcp src-port=59350
+/ip firewall mangle add action=mark-connection chain=forward dst-port=39301-39304 new-connection-mark=CFTV_CONN passthrough=yes protocol=tcp
+/ip firewall mangle add action=mark-connection chain=forward new-connection-mark=CFTV_CONN passthrough=yes protocol=tcp src-port=39301-39304
+/ip firewall mangle add action=mark-connection chain=forward dst-port=49301-49304 new-connection-mark=CFTV_CONN passthrough=yes protocol=tcp
+/ip firewall mangle add action=mark-connection chain=forward new-connection-mark=CFTV_CONN passthrough=yes protocol=tcp src-port=49301-49304
+/ip firewall mangle add action=mark-connection chain=forward dst-port=59301-59304 new-connection-mark=CFTV_CONN passthrough=yes protocol=tcp
+/ip firewall mangle add action=mark-connection chain=forward new-connection-mark=CFTV_CONN passthrough=yes protocol=tcp src-port=59301-59304
+/ip firewall mangle add action=mark-connection chain=forward dst-port=4001-4008 new-connection-mark=CFTV_CONN passthrough=yes protocol=tcp
+/ip firewall mangle add action=mark-connection chain=forward new-connection-mark=CFTV_CONN passthrough=yes protocol=tcp src-port=4001-4008
+/ip firewall mangle add action=mark-connection chain=forward dst-port=5001-5008 new-connection-mark=CFTV_CONN passthrough=yes protocol=tcp
+/ip firewall mangle add action=mark-connection chain=forward new-connection-mark=CFTV_CONN passthrough=yes protocol=tcp src-port=5001-5008
