@@ -1,6 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Digite a sua idade: ");
+﻿namespace NomeDoProjeto;
 
-int idade = Int32.Parse(Console.ReadLine());
-
-Console.WriteLine("Sua idade é: " + idade);
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("Hello, World!");
+    }
+}

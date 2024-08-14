@@ -1,0 +1,15 @@
+/home/diego/Projetos/diegoromal/bes_up/DesenvolvimentoDeSoftwareVisual/ListaExercicios/Ex006a/bin/Debug/net8.0/Ex006a
+/home/diego/Projetos/diegoromal/bes_up/DesenvolvimentoDeSoftwareVisual/ListaExercicios/Ex006a/bin/Debug/net8.0/Ex006a.deps.json
+/home/diego/Projetos/diegoromal/bes_up/DesenvolvimentoDeSoftwareVisual/ListaExercicios/Ex006a/bin/Debug/net8.0/Ex006a.runtimeconfig.json
+/home/diego/Projetos/diegoromal/bes_up/DesenvolvimentoDeSoftwareVisual/ListaExercicios/Ex006a/bin/Debug/net8.0/Ex006a.dll
+/home/diego/Projetos/diegoromal/bes_up/DesenvolvimentoDeSoftwareVisual/ListaExercicios/Ex006a/bin/Debug/net8.0/Ex006a.pdb
+/home/diego/Projetos/diegoromal/bes_up/DesenvolvimentoDeSoftwareVisual/ListaExercicios/Ex006a/obj/Debug/net8.0/Ex006a.GeneratedMSBuildEditorConfig.editorconfig
+/home/diego/Projetos/diegoromal/bes_up/DesenvolvimentoDeSoftwareVisual/ListaExercicios/Ex006a/obj/Debug/net8.0/Ex006a.AssemblyInfoInputs.cache
+/home/diego/Projetos/diegoromal/bes_up/DesenvolvimentoDeSoftwareVisual/ListaExercicios/Ex006a/obj/Debug/net8.0/Ex006a.AssemblyInfo.cs
+/home/diego/Projetos/diegoromal/bes_up/DesenvolvimentoDeSoftwareVisual/ListaExercicios/Ex006a/obj/Debug/net8.0/Ex006a.csproj.CoreCompileInputs.cache
+/home/diego/Projetos/diegoromal/bes_up/DesenvolvimentoDeSoftwareVisual/ListaExercicios/Ex006a/obj/Debug/net8.0/Ex006a.sourcelink.json
+/home/diego/Projetos/diegoromal/bes_up/DesenvolvimentoDeSoftwareVisual/ListaExercicios/Ex006a/obj/Debug/net8.0/Ex006a.dll
+/home/diego/Projetos/diegoromal/bes_up/DesenvolvimentoDeSoftwareVisual/ListaExercicios/Ex006a/obj/Debug/net8.0/refint/Ex006a.dll
+/home/diego/Projetos/diegoromal/bes_up/DesenvolvimentoDeSoftwareVisual/ListaExercicios/Ex006a/obj/Debug/net8.0/Ex006a.pdb
+/home/diego/Projetos/diegoromal/bes_up/DesenvolvimentoDeSoftwareVisual/ListaExercicios/Ex006a/obj/Debug/net8.0/Ex006a.genruntimeconfig.cache
+/home/diego/Projetos/diegoromal/bes_up/DesenvolvimentoDeSoftwareVisual/ListaExercicios/Ex006a/obj/Debug/net8.0/ref/Ex006a.dll
