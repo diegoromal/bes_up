@@ -1,0 +1,9 @@
+###
+GET http://localhost:5291/
+
+###
+GET http://localhost:5291/produto/listar
+
+###
+
+POST http://localhost:5291/produto/cadastrar/TV/2000/2
