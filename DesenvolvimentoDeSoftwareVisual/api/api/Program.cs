@@ -1,4 +1,6 @@
+using System.Text.Json;
 using api.Entities;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
@@ -20,6 +22,19 @@ app.MapGet("/produto/listar", () => {
 
 app.MapPost("/produto/cadastrar/{nome}/{preco}/{quantidade}", (string nome, float preco, int quantidade) => {
     Produto produto = new Produto(){Nome = nome, Preco = preco, Quantidade = quantidade};
+    produtos.Add(produto);
+
+    return Results.Ok(produto);
+});
+
+app.MapPost("/produto/cadastrar", async (HttpRequest request) =>
+{
+    var produto = await request.ReadFromJsonAsync<Produto>();
+
+    if (produto == null) {
+        return Results.BadRequest("Dados do produto inválidos");
+    }
+
     produtos.Add(produto);
 
     return Results.Ok(produto);

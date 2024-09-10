@@ -7,3 +7,14 @@ GET http://localhost:5291/produto/listar
 ###
 
 POST http://localhost:5291/produto/cadastrar/TV/2000/2
+
+
+###
+POST http://localhost:5291/produto/cadastrar
+content-type: application/json
+
+{
+    "nome": "Bicicleta",
+    "Preco": 800,
+    "Quantidade": 5
+}
