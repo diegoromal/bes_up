@@ -22,3 +22,13 @@ content-type: application/json
 {
     "nome": "TV"
 }
+
+###
+PUT http://localhost:5291/produto/atualizar
+content-type: application/json
+
+{
+    "nome": "TV",
+    "preco": 3500.0,
+    "quantidade": 12
+}

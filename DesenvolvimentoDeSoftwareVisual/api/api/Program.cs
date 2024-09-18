@@ -42,16 +42,29 @@ app.MapPost("/produto/cadastrar", ([FromBody] Produto produto) => {
 });
 // TODO: Ajustar método deletar
 app.MapDelete("/produto/deletar", ([FromBody] Produto produto) => {
-    produtos.Remove(produto);
+    var produtoRemover = produtos.FirstOrDefault(p => p.Nome == produto.Nome);
+    
+    if (produtoRemover != null) {
+        produtos.Remove(produtoRemover);
+        return Results.Ok(produtoRemover);  
+    }
 
-    return Results.Ok();  
-
+    return Results.NotFound();
 });
+
 // TODO: Ajustar método atualizar
 app.MapPut("/produto/atualizar", ([FromBody] Produto produto) => {
-    produtos.Add(produto);
+    var produtoExistente = produtos.FirstOrDefault(p => p.Nome == produto.Nome);
 
-    return Results.Ok(produto);
+    if (produtoExistente != null) {
+        // Atualize os campos necessários
+        produtoExistente.Preco = produto.Preco;
+        produtoExistente.Quantidade = produto.Quantidade;
+
+        return Results.Ok(produtoExistente);
+    }
+
+    return Results.NotFound();
 });
 
 app.Run();
