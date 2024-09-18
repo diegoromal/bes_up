@@ -5,16 +5,20 @@ GET http://localhost:5291/
 GET http://localhost:5291/produto/listar
 
 ###
-
-POST http://localhost:5291/produto/cadastrar/TV/2000/2
-
+GET http://localhost:5291/produto/buscar/Bicicleta
 
 ###
 POST http://localhost:5291/produto/cadastrar
 content-type: application/json
 
 {
-    "nome": "Bicicleta",
-    "Preco": 800,
-    "Quantidade": 5
+    "nome": "TV"
+}
+
+###
+DELETE http://localhost:5291/produto/deletar
+content-type: application/json
+
+{
+    "nome": "TV"
 }
